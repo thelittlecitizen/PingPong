@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading.Tasks;
 
 namespace Server
 {
@@ -33,33 +34,46 @@ namespace Server
                 listener.Listen(10);
 
                 Console.WriteLine("Waiting for a connection...");
-                Socket handler = listener.Accept();
 
-                string data = null;
-                byte[] bytes = null;
-
-                while (true)
+                while(true)
                 {
-                    bytes = new byte[1024];
-                    int bytesRec = handler.Receive(bytes);
-                    data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                    Console.WriteLine("Text received : {0}", data);
-                    byte[] msg = Encoding.ASCII.GetBytes(data);
-                    handler.Send(msg);
-
-                   
-
-                    if (data.IndexOf("seeya") > -1)
+                    Socket handler = listener.Accept();
+                    Task.Factory.StartNew(obj => 
                     {
-                        break;
-                    }
+                        string data = null;
+                        byte[] bytes = null;
+
+                        while (true)
+                        {
+                            bytes = new byte[1024];
+                            int bytesRec = handler.Receive(bytes);
+                            data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                            Console.WriteLine("Text received : {0}", data);
+                            byte[] msg = Encoding.ASCII.GetBytes(data);
+                            handler.Send(msg);
+
+
+
+                            if (data.IndexOf("seeya") > -1)
+                            {
+                                break;
+                            }
+                        }
+                        handler.Shutdown(SocketShutdown.Both);
+                        handler.Close();
+
+                    }, listener);
+
                 }
+
+                
+
+                
 
 
                 
 
-                handler.Shutdown(SocketShutdown.Both);
-                handler.Close();
+                
             }
             catch (Exception e)
             {

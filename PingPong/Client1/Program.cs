@@ -1,10 +1,10 @@
-﻿// A C# program for Client 
+﻿// A C# program for Client 1
 using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-namespace Client
+namespace Client1
 {
 
     public class Program
@@ -28,7 +28,7 @@ namespace Client
                 IPAddress ipAddress = host.AddressList[0];
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 11000);
 
-                Socket sender = new Socket(ipAddress.AddressFamily,SocketType.Stream, ProtocolType.Tcp);
+                Socket sender = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
                 try
                 {
@@ -39,7 +39,7 @@ namespace Client
                     {
                         Console.WriteLine("start talking");
                         var a = Console.ReadLine();
-                        
+
                         byte[] msg = Encoding.ASCII.GetBytes(a);
                         int bytesSent = sender.Send(msg);
                         int bytesRec = sender.Receive(bytes);
@@ -49,16 +49,16 @@ namespace Client
                         }
                         Console.WriteLine("Echoed test = {0}", Encoding.ASCII.GetString(bytes, 0, bytesRec));
 
-                        
+
 
                     }
-                        
 
-                        sender.Shutdown(SocketShutdown.Both);
-                        sender.Close();
 
-                    
-                    
+                    sender.Shutdown(SocketShutdown.Both);
+                    sender.Close();
+
+
+
 
 
 
@@ -81,7 +81,7 @@ namespace Client
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-               // Console.ReadLine();
+                // Console.ReadLine();
             }
             Console.ReadLine();
         }

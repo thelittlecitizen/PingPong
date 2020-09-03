@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "PingPong\Server.csproj", "{7B31B7DD-9AE7-4EF6-881B-22291740D1A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "PingPong\Server.csproj", "{7B31B7DD-9AE7-4EF6-881B-22291740D1A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Server\Client.csproj", "{66C01ABC-4851-49AE-BBF0-D4EB856419AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Server\Client.csproj", "{66C01ABC-4851-49AE-BBF0-D4EB856419AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client1", "Client1\Client1.csproj", "{AC71B4BC-C6D2-425B-9AF6-1875BBA5E31D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{66C01ABC-4851-49AE-BBF0-D4EB856419AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66C01ABC-4851-49AE-BBF0-D4EB856419AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66C01ABC-4851-49AE-BBF0-D4EB856419AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC71B4BC-C6D2-425B-9AF6-1875BBA5E31D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC71B4BC-C6D2-425B-9AF6-1875BBA5E31D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC71B4BC-C6D2-425B-9AF6-1875BBA5E31D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC71B4BC-C6D2-425B-9AF6-1875BBA5E31D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
