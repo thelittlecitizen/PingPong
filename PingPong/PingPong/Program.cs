@@ -33,7 +33,6 @@ namespace Server
                 listener.Listen(10);
 
                 Console.WriteLine("Waiting for a connection...");
-                Console.ReadLine();
                 Socket handler = listener.Accept();
 
                 string data = null;
@@ -43,18 +42,22 @@ namespace Server
                 {
                     bytes = new byte[1024];
                     int bytesRec = handler.Receive(bytes);
-                    data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                    if (data.IndexOf("<EOF>") > -1)
+                    data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                    Console.WriteLine("Text received : {0}", data);
+                    byte[] msg = Encoding.ASCII.GetBytes(data);
+                    handler.Send(msg);
+
+                   
+
+                    if (data.IndexOf("seeya") > -1)
                     {
                         break;
                     }
                 }
 
-                Console.WriteLine("Text received : {0}", data);
-                Console.ReadLine();
 
-                byte[] msg = Encoding.ASCII.GetBytes(data);
-                handler.Send(msg);
+                
+
                 handler.Shutdown(SocketShutdown.Both);
                 handler.Close();
             }

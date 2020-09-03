@@ -10,3 +10,4 @@ C:\Code\PingPong\PingPong\Server\obj\Debug\netcoreapp3.1\Client.csproj.CoreCompi
 C:\Code\PingPong\PingPong\Server\obj\Debug\netcoreapp3.1\Client.dll
 C:\Code\PingPong\PingPong\Server\obj\Debug\netcoreapp3.1\Client.pdb
 C:\Code\PingPong\PingPong\Server\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache
+C:\Code\PingPong\PingPong\Server\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache
